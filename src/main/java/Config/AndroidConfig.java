@@ -34,10 +34,11 @@ public class AndroidConfig {
             WebDriverWait wait = new WebDriverWait(driver, WAIT_SHORT);
             if(getPropertyValue(APP_TO_BE_TESTED).contains("Api")){
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ELEMENT_API)));
+            } else if (getPropertyValue(APP_TO_BE_TESTED).contains("Zio")){
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ELEMENT_ZIO)));
             } else {
 
             }
-
             System.out.println("The application is ready");
         }
         catch (Exception e) {

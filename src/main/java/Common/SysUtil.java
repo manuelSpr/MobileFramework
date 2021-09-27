@@ -18,19 +18,21 @@ public class SysUtil {
     {
         try {
             WebDriverWait wait = new WebDriverWait(driver, WAIT_SHORT);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(String.format(element.toString()))));
+            wait.until(ExpectedConditions.visibilityOf(element));
         } catch (Exception ex) {
             Reporter.log("++ error: "+ex);
         }
     }
 
     public void goSection(String title, AndroidDriver<AndroidElement> driver, String base){
-        List<AndroidElement> options = driver.findElementsByAndroidUIAutomator(base);
+        List<AndroidElement> options = driver.findElementsByClassName(base);
         for(AndroidElement element : options){
             if(element.getText().equals(title)){
                 element.click();
             }
         }
     }
+
+
 
 }

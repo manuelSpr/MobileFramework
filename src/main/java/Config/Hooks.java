@@ -9,11 +9,14 @@ import java.net.MalformedURLException;
 
 public class Hooks {
 
-    public AndroidDriver<AndroidElement> driver;
+    public static AndroidDriver<AndroidElement> driver;
+    public Hooks(){
 
-    @BeforeClass
-    public AndroidDriver<AndroidElement> initializeDriver() throws IOException {
-        return this.driver = new AndroidConfig().setDriver();
+    }
+
+    @BeforeMethod
+    public void initializeDriver() throws IOException {
+        driver = new AndroidConfig().setDriver();
     }
 
     @AfterClass
